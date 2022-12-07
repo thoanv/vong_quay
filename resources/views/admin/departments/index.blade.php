@@ -54,11 +54,28 @@
                     </div>
                 </div>
             </div>
+            @if (session('success'))
+            <div class="row notification-submit">
+                <div class="col-lg-12">
+                    <div class="alert alert-success  text-white " role="alert">
+                        <strong>Thao tác !</strong> {{ session('success') }}!
+                    </div>
+                </div>
+            </div>
+            @endif
             <div class="row mb-4">
                 <div class="col-lg-12 col-md-12 mb-md-0 mb-4">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
-                            <h6 class="mb-0">Danh sách</h6>
+                            <h6 class="mb-0">Danh sách
+                            </h6>
+                            <div style="float: right; display: inline-block; margin-top: -30px;">
+                                <a href="{{route('departments.create')}}" class="btn btn-primary btn-sm">Thêm mới</a>
+                                <a class="btn btn-primary btn-sm">Import</a>
+                                <a class="btn btn-primary btn-sm">Ẩn Tất cả</a>
+                                <a class="btn btn-primary btn-sm">Hiển thị Tất cả</a>
+                                <a class="btn btn-primary btn-sm">Xóa Tất cả</a>
+                            </div>
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-body p-1 pb-2">
@@ -68,6 +85,7 @@
                                     <tr>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">STT</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên phòng ban</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">SL Nhân viên</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Trạng thái</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hành động</th>
                                     </tr>
@@ -84,15 +102,26 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <div class="form-check form-switch mb-3" style="display: inline-block">
+                                            <div class="btn btn-rounded btn-outline-success mb-0 me-2 btn-sm align-items-center justify-content-center">
+                                                <div>{{$department->attendances()->count()}}</div>
+                                            </div>
+
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <div class="form-check form-switch" style="display: inline-block">
                                                 <input class="form-check-input" name="my-checkbox" type="checkbox" data-id="{{$department['id']}}"
                                                        data-api="{{route('enable-column')}}" data-table="departments"
                                                        data-column="status"  {{ $department['status'] ? 'checked="checked"' : '' }}>
                                             </div>
                                         </td>
+
                                         <td class="align-middle text-center text-sm">
-                                            <button type="button" class="btn btn-info btn-sm">Sửa</button>
-                                            <button type="button" class="btn btn-primary btn-sm">Xóa</button>
+                                            <a href="{{route('departments.edit', $department)}}" class="btn btn-info btn-sm mb-0">Sửa</a>
+                                            <form class="d-inline-block" action="{{ route('departments.destroy', $department) }}" method="POST" >
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-primary btn-sm mb-0" onclick="return confirm('Bạn có muốn xóa không?')"> Xóa</button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Repositories\DepartmentRepository as DepartmentRepo;
 
@@ -36,7 +37,11 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        $department = new Department();
+        return view($this->view.'.create', [
+            'department' => $department,
+            'view'  => $this->view
+        ]);
     }
 
     /**
@@ -47,7 +52,14 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'  => 'required',
+        ]);
+        $data['name'] = $request['name'];
+        $data['parent_id'] = 0;
+        $data['status'] = isset($request['status']) ? 1 : 0;
+        $this->departmentRepo->create($data);
+        return redirect(route($this->route.'.index'))->with('success','Thêm mới thành công');
     }
 
     /**
@@ -67,9 +79,12 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Department $department)
     {
-        //
+        return view($this->view.'.update', [
+            'department' => $department,
+            'view'  => $this->view
+        ]);
     }
 
     /**
@@ -81,7 +96,13 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'  => 'required',
+        ]);
+        $data['name'] = $request['name'];
+        $data['status'] = isset($request['status']) ? 1 : 0;
+        $this->departmentRepo->update($data, $id);
+        return redirect(route($this->route.'.index'))->with('success','Cập nhật thành công');
     }
 
     /**
@@ -90,8 +111,9 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Department $department)
     {
-        //
+        $department->delete();
+        return redirect()->back()->with('success','Xóa thành công');
     }
 }

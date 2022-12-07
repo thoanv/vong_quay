@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InformationController;
 use App\Http\Controllers\Ajax\AjaxController;
+use App\Http\Controllers\admin\AttendanceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +33,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/information', [InformationController::class, 'edit'])->name('information.edit');
         Route::post('/information', [InformationController::class, 'update'])->name('information.update');
         Route::resources([
-            'departments' => DepartmentController::class
+            'departments' => DepartmentController::class,
+            'attendances' => AttendanceController::class,
         ]);
     });
     //Ajax

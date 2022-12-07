@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-    <link rel="shortcut icon" href="../assets/img/wait.png" />
+    <link rel="shortcut icon" href="/assets/img/wait.png" />
     <!-- Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
@@ -143,7 +143,9 @@
         inputElement_.addEventListener('keydown', enforceFormat);
         inputElement_.addEventListener('keyup', formatToPhone);
     })
-
+    setTimeout(function () {
+        $('.notification-submit').fadeOut('fast');
+    }, 5000);
 </script>
 @stack('scripts')
 </body>

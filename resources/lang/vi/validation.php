@@ -163,6 +163,7 @@ return [
         'full_name' => 'Họ và tên',
         'phone' => 'Số điện thoại',
         'captcha' => 'Kết quả',
+        'name'    => 'Tên',
     ],
 
 ];

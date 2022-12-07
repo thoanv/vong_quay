@@ -33,6 +33,7 @@
                                             </div>
                                         @endif
                                     </div>
+                                    @if(count($departments) > 0)
                                     <div class="form-group">
                                         <label>Phòng ban</label>
                                         <select class="form-control js-example-basic-single" name="department_id">
@@ -42,6 +43,7 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    @endif
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6">

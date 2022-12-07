@@ -13,9 +13,9 @@ class AttendanceRepository extends AbstractRepository
 
     public function randomCode()
     {
-        $query = $this->model->where('status', false)->pluck('code')->toArray();
-        $rand_key = array_rand($query, 1);
-        $attendance = $this->model->where('code', $query[$rand_key])->first();
-        return $attendance;
+        $query = $this->model->where('status', true)->inRandomOrder()->first();
+        $query['status'] = 0;
+        $query->save();
+        return $query;
     }
 }
