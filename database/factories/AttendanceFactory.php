@@ -19,7 +19,7 @@ class AttendanceFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'phone' => $this->generateOrderNumber(10),
-            'code' =>   $this->generateOrderNumber(6),
+            'code' =>   $this->generateOrderNumber(4),
             'status' => 1
         ];
     }
