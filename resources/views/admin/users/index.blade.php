@@ -82,6 +82,7 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Thời gian sử dụng</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Thời gian đăng ký</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Trạng thái</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Admin</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hành động</th>
                                     </tr>
                                     </thead>
@@ -117,11 +118,17 @@
                                         <td class="align-middle text-center text-sm">
                                             <div class="form-check form-switch" style="display: inline-block">
                                                 <input class="form-check-input" name="my-checkbox" type="checkbox" data-id="{{$item['id']}}"
-                                                       data-api="{{route('enable-column')}}" data-table="departments"
+                                                       data-api="{{route('enable-column')}}" data-table="users"
                                                        data-column="status"  {{ $item['status'] ? 'checked="checked"' : '' }}>
                                             </div>
                                         </td>
-
+                                        <td class="align-middle text-center text-sm">
+                                            <div class="form-check form-switch" style="display: inline-block">
+                                                <input class="form-check-input" name="my-checkbox" type="checkbox" data-id="{{$item['id']}}"
+                                                       data-api="{{route('enable-column')}}" data-table="users"
+                                                       data-column="is_admin"  {{ $item['is_admin'] ? 'checked="checked"' : '' }}>
+                                            </div>
+                                        </td>
                                         <td class="align-middle text-center text-sm">
                                             <form class="d-inline-block" action="{{ route('attendances.destroy', $item) }}" method="POST" >
                                                 @csrf
