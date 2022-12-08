@@ -44,7 +44,7 @@
     </style>
 </head>
 <body style="background-image: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}');" class="attendance">
-<div class="container position-sticky z-index-sticky top-0">
+<div class="container top-0">
     <div class="row">
         <div class="col-lg-12 text-center col-box-logo">
             <div class="box-logo bg-gradient-primary box-shadow">
