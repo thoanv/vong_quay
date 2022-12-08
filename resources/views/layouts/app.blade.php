@@ -46,7 +46,7 @@
         }
         @media only screen and (max-width: 768px){
             .box-logo .logo{
-                width: 100px;
+                width: 50px;
             }
         }
     </style>
