@@ -41,6 +41,14 @@
             color: {{$about['code_color'] ? $about['code_color'] : '#026938'}};
             border: 1px solid {{$about['code_color'] ? $about['code_color'] : '#026938'}};
         }
+        .box-logo .logo{
+            width: 150px;
+        }
+        @media only screen and (max-width: 768px){
+            .box-logo .logo{
+                width: 100px;
+            }
+        }
     </style>
 </head>
 <body style="background-image: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}');" class="attendance">
@@ -49,7 +57,7 @@
         <div class="col-lg-12 text-center col-box-logo">
             <div class="box-logo bg-gradient-primary box-shadow">
                 <a  href="{{route('spin')}}">
-                    <img src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo" style="width: 150px;">
+                    <img class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">
                 </a>
             </div>
         </div>
