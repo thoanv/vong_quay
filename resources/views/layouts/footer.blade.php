@@ -10,9 +10,15 @@
                     <li class="nav-item">
                         <a href="{{route('attendance')}}" class="nav-link text-white">Điểm danh</a>
                     </li>
+                    @if(\Illuminate\Support\Facades\Auth::check())
                     <li class="nav-item">
                         <a href="{{route('dashboard')}}" class="nav-link text-white">Quản trị</a>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{route('login')}}" class="nav-link text-white">Đăng nhập</a>
+                    </li>
+                    @endif
                     <li class="nav-item">
                         <a href="{{route('spin')}}" class="nav-link text-white">Vòng quay</a>
                     </li>

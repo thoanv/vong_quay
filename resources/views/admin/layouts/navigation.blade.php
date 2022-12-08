@@ -50,12 +50,16 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-in.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Đăng xuất</span>
-                </a>
+                <form action="{{route('logout')}}" method="POST" >
+                    @csrf
+                    <button class="nav-link btn" type="submit" style="width: 88%;text-transform: capitalize;">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">login</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Đăng xuất</span>
+                    </button>
+{{--                    <button type="submit" class="btn btn-primary btn-sm mb-0" onclick="return confirm('Bạn có muốn xóa không?')"> Xóa</button>--}}
+                </form>
             </li>
             @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
             <li class="nav-item mt-3">
