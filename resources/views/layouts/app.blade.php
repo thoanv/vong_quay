@@ -20,7 +20,7 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{asset('assets/css/material-dashboard.css')}}" rel="stylesheet" />
+    <link id="pagestyle" href="{{asset('assets/css/material-dashboard.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/lib/select2/css/select2.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     <style>
@@ -42,7 +42,7 @@
             border: 1px solid {{$about['code_color'] ? $about['code_color'] : '#026938'}};
         }
         .box-logo .logo{
-            width: 150px;
+            width: 100px;
         }
         @media only screen and (max-width: 768px){
             .box-logo .logo{
@@ -52,14 +52,29 @@
     </style>
 </head>
 <body style="background-image: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}');" class="attendance">
-<div class="container top-0">
+{{--<div class="container top-0">--}}
+{{--    <div class="row">--}}
+{{--        <div class="col-lg-12 text-center col-box-logo">--}}
+{{--            <div class="box-logo bg-gradient-primary box-shadow">--}}
+{{--                <a  href="{{route('spin')}}">--}}
+{{--                    <img class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+<div class="container position-sticky z-index-sticky top-0">
     <div class="row">
-        <div class="col-lg-12 text-center col-box-logo">
-            <div class="box-logo bg-gradient-primary box-shadow">
-                <a  href="{{route('spin')}}">
-                    <img class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">
-                </a>
-            </div>
+        <div class="col-12">
+            <!-- Navbar -->
+            <nav class="border-radius-xl top-0 z-index-3 text-center position-absolute my-3 py-2 start-0 end-0 mx-4">
+                <div class="container-fluid ps-2 pe-0">
+                    <a class="box-logo bg-gradient-primary navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{route('spin')}}">
+                        <img class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">
+                    </a>
+                </div>
+            </nav>
+            <!-- End Navbar -->
         </div>
     </div>
 </div>

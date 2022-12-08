@@ -30,7 +30,7 @@
                         document.write(new Date().getFullYear())
                     </script>,
                     <i class="fa fa-heart" style="margin: 0 15px" aria-hidden="true"></i>
-                    Thỏa Nguyễn - Ban Công Nghệ
+                    Phát triển bởi Ban Công Nghệ
                 </div>
             </div>
         </div>
