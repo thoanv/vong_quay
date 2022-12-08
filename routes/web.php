@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InformationController;
 use App\Http\Controllers\Ajax\AjaxController;
 use App\Http\Controllers\admin\AttendanceController;
+use App\Http\Controllers\admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +34,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/information', [InformationController::class, 'edit'])->name('information.edit');
         Route::post('/information', [InformationController::class, 'update'])->name('information.update');
         Route::resources([
-            'departments' => DepartmentController::class,
-            'attendances' => AttendanceController::class,
+            'departments'   => DepartmentController::class,
+            'attendances'   => AttendanceController::class,
+            'users'         => UserController::class,
         ]);
+        Route::post('/delete-all-departments', [DepartmentController::class, 'deleteAll'])->name('delete-all-departments');
+        Route::post('/status-departments/{type}', [DepartmentController::class, 'statusDepartment'])->name('status-departments');
+
+
+        Route::post('/delete-all-attendances', [AttendanceController::class, 'deleteAll'])->name('delete-all-attendances');
+        //Import database phòng ban
+        Route::get('/import-view-departments', [DepartmentController::class, 'importView'])->name('import-view-departments');
+        Route::post('/import-departments', [DepartmentController::class, 'import'])->name('import-departments');
     });
     //Ajax
     Route::post('enable-column', [AjaxController::class, 'enableColumn'])->name('enable-column');

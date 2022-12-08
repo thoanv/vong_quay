@@ -2,21 +2,21 @@
 namespace App\Repositories;
 
 use App\Models\Attendance;
+use App\Models\User;
 use App\Repositories\Support\AbstractRepository;
 use Illuminate\Support\Facades\Auth;
 
-class AttendanceRepository extends AbstractRepository
+class UserRepository extends AbstractRepository
 {
     public function model(){
-        return Attendance::class;
+        return User::class;
     }
     public function getData($request)
     {
         $query = $this->model;
         if($request->name){
             $query = $query->where('name', 'like', '%' . $request->name . '%')
-                ->orWhere('phone', 'like', '%' . $request->name . '%')
-                ->orWhere('code', $request->name);
+                ->orWhere('email', 'like', '%' . $request->name . '%');
         }
 
         if($request->status == 0 && $request->status !=''){
@@ -27,12 +27,5 @@ class AttendanceRepository extends AbstractRepository
         }
 
         return $query->orderBy('id', 'DESC')->paginate(20);
-    }
-    public function randomCode()
-    {
-        $query = $this->model->where('status', true)->inRandomOrder()->first();
-        $query['status'] = 0;
-        $query->save();
-        return $query;
     }
 }

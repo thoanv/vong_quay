@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Imports\ImportDepartment;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Repositories\DepartmentRepository as DepartmentRepo;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class DepartmentController extends Controller
 {
@@ -115,5 +119,39 @@ class DepartmentController extends Controller
     {
         $department->delete();
         return redirect()->back()->with('success','Xóa thành công');
+    }
+
+    public function deleteAll(Request $request)
+    {
+        DB::table('departments')->delete();
+        return redirect()->back()->with('success','Xóa thành công');
+    }
+
+    public function statusDepartment(Request $request, $type)
+    {
+        if($type){
+            DB::table('departments')->update(['status' => 1]);
+            return redirect()->back()->with('success','Hiển thị thành công');
+        }else{
+            DB::table('departments')->update(['status' => 0]);
+            return redirect()->back()->with('success','Ẩn thành công');
+        }
+    }
+
+    public function importView(Request $request){
+        return view($this->view.'.import');
+    }
+
+    public function import(Request $request){
+        try {
+            $request->validate([
+                'file'=> 'required|mimes:xlsx, xls'
+            ]);
+            Excel::import(new ImportDepartment(), $request->file('file'));
+            return redirect()->back()->with('success','Import dữ liệu thành công');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
     }
 }

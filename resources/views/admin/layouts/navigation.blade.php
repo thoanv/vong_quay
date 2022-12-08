@@ -49,17 +49,6 @@
                     <span class="nav-link-text ms-1">Check In</span>
                 </a>
             </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Quản trị</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/profile.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Quản trị viên</span>
-                </a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link text-white " href="../pages/sign-in.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -68,6 +57,19 @@
                     <span class="nav-link-text ms-1">Đăng xuất</span>
                 </a>
             </li>
+            @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Quản trị</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{(request()->is('admin/users')) ? 'active bg-gradient-primary' : '' }}" href="{{route('users.index')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Quản trị viên</span>
+                </a>
+            </li>
+            @endif
         </ul>
     </div>
 </aside>

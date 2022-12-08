@@ -18,8 +18,8 @@ class CreateAttendancesTable extends Migration
             $table->string('name');
             $table->string('phone')->unique()->nullable();
             $table->string('code')->unique()->nullable();
-            $table->tinyInteger('status')->default(0);
-            $table->unsignedInteger('department_id');
+            $table->tinyInteger('status')->default(1);
+            $table->unsignedInteger('department_id')->default(0);
             $table->timestamps();
         });
     }

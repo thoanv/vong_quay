@@ -13,11 +13,14 @@ class CreateInformationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('informations', function (Blueprint $table) {
+        Schema::create('information', function (Blueprint $table) {
             $table->id();
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->string('background')->nullable();
+            $table->string('code_color')->nullable();
+            $table->integer('second')->default(0);
             $table->string('company')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
@@ -35,6 +38,6 @@ class CreateInformationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('informations');
+        Schema::dropIfExists('information');
     }
 }

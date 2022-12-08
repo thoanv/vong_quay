@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAttendanceRequest;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Repositories\DepartmentRepository as DepartmentRepo;
@@ -65,15 +66,15 @@ class DiemDanhController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'full_name'  => 'required',
-            'phone' => 'required|unique:attendances,phone',
-            'captcha' => 'required|captcha',
+        $validated = $request->validate([
+            'phone' => 'required|unique:attendances',
+            'full_name' => 'required',
+            'captcha'  => 'required|captcha'
         ]);
         $data['name'] = $request->full_name;
         if($request['department_id'])
             $data['department_id'] = $request['department_id'];
-        $data['phone'] = str_replace(' ', '', $request['phone']);
+        $data['phone'] = $request['phone'];
         $data['code'] = $this->generateOrderNumber();
         $result = $this->attendanceRepo->create($data);
         return redirect(route('success.attendance', $result));

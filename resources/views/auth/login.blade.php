@@ -12,6 +12,15 @@
                                     <h4 class="text-white font-weight-bolder text-center mt-2">Hệ thống đăng nhập</h4>
                                 </div>
                             </div>
+                            @if (session('email'))
+                                <div class="row notification-submit">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-success  text-white " role="alert">
+                                            <strong>Thao tác !</strong> {{ session('email') }}!
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="card-body attendance">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -26,6 +35,10 @@
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Đăng nhập</button>
                                     </div>
+                                    <p class="mt-4 text-sm text-center">
+                                        Nếu bạn chưa có tài khoản ?
+                                        <a href="{{route('register')}}" class="text-primary text-gradient font-weight-bold">Đăng ký</a>
+                                    </p>
                                 </form>
                             </div>
                         </div>
