@@ -35,4 +35,8 @@ class AttendanceRepository extends AbstractRepository
         $query->save();
         return $query;
     }
+    public function getAttendanceByCode($code)
+    {
+        return $this->model->where('code', $code)->first();
+    }
 }

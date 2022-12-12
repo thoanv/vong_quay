@@ -25,6 +25,11 @@ class DiemDanhController extends Controller
      */
     public function index()
     {
+        if(isset($_COOKIE['code']) && $_COOKIE['code']){
+            $cookie = (int)$_COOKIE['code'];
+            $attendance = $this->attendanceRepo->getAttendanceByCode($cookie);
+            return redirect(route('success.attendance', $attendance));
+        }
         $departments = $this->departmentRepo->getDepartments();
         return view('attendance', [
             'departments' => $departments
@@ -77,6 +82,7 @@ class DiemDanhController extends Controller
         $data['phone'] = $request['phone'];
         $data['code'] = $this->generateOrderNumber();
         $result = $this->attendanceRepo->create($data);
+        setcookie('code', $data['code'], time() + (30*24*60*60), "/");
         return redirect(route('success.attendance', $result));
     }
 
