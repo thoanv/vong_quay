@@ -19,9 +19,9 @@
                         <a href="{{route('login')}}" class="nav-link text-white">Đăng nhập</a>
                     </li>
                     @endif
-                    <li class="nav-item">
-                        <a href="{{route('spin')}}" class="nav-link text-white">Vòng quay</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{route('spin')}}" class="nav-link text-white">Vòng quay</a>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
             <div class="col-12 col-md-6 my-auto">

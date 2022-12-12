@@ -20,7 +20,7 @@
         <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 
     </head>
-    <body class="bg-gray-200">
+    <body class="bg-gray-200 attendance">
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
