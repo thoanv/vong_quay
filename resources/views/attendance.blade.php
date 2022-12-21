@@ -44,14 +44,14 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <label for="captcha" class="form-label">Phép tính</label>
+                                                <label for="captcha" class="form-label">Mã captcha</label>
                                                 <div class="captcha">
                                                     <span>{!! Captcha::img('flat') !!}</span>
                                                     <a href="javascript:void(0)" class="btn-reload" id="refresh"><i class="fa fa-refresh" ></i></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="captcha" class="form-label">Kết quả *</label>
+                                                <label for="captcha" class="form-label">Nhập kết quả *</label>
                                                 <input type="text" class="form-control apply-captcha" id="captcha" name="captcha" placeholder="Nhập kết quả...">
                                                 @if ($errors->has('captcha'))
                                                     <div class="mt-1 notification-error">

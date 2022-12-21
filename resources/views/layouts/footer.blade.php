@@ -26,11 +26,11 @@
             </div>
             <div class="col-12 col-md-6 my-auto">
                 <div class="copyright text-center text-sm text-white text-lg-end">
-                    © <script>
+                    &copy; Copyright
+                    <script>
                         document.write(new Date().getFullYear())
                     </script>,
-                    <i class="fa fa-heart" style="margin: 0 15px" aria-hidden="true"></i>
-                    Phát triển bởi Ban Công Nghệ
+                    BCN SGO Group
                 </div>
             </div>
         </div>
