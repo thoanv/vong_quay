@@ -154,6 +154,7 @@
 
         })
         function spin(id, name){
+            x.play();
             $('.pyro').hide();
             $('.name-reward-run').html(name);
             $('.spinner-reward-'+id).show();
