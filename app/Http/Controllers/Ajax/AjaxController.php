@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ajax;
 use App\Models\Department;
+use App\Models\Reward;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -46,6 +47,25 @@ class AjaxController extends BaseController
         }
 
         return $this->sendResponse(false, 'successfully.');
+    }
+
+    public function sortReward(Request $request)
+    {
+        $serialize = json_decode($request->get('serialize'), true);
+
+        foreach ($serialize as $key => $item) {
+            $this->saveSerial($item, $key + 1);
+        }
+
+        return $this->sendResponse(true, 'Product created successfully.');
+    }
+
+    private function saveSerial($item, $serial)
+    {
+        $array = $item;
+        $data = Reward::find($array['id']);
+        $data->serial = $serial;
+        $data->save();
     }
 
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\InformationController;
 use App\Http\Controllers\Ajax\AjaxController;
 use App\Http\Controllers\admin\AttendanceController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\Admin\RewardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,19 +27,27 @@ Route::get('/', function () {
 Route::get('/diem-danh-thanh-cong/{attendance}', [DiemDanhController::class, 'show'])->name('success.attendance');
 Route::get('/diem-danh', [DiemDanhController::class, 'index'])->name('attendance');
 Route::post('/diem-danh', [DiemDanhController::class, 'store'])->name('post.attendance');
+Route::get('/banh-xe', [SpinController::class, 'banhXe'])->name('banhXe');
 Route::middleware(['auth'])->group(function () {
     Route::get('/quay', [SpinController::class, 'index'])->name('spin');
+    Route::get('/reward', [SpinController::class, 'reward'])->name('reward');
     Route::get('/call-result', [SpinController::class, 'store'])->name('call-result');
+    Route::post('/confirm-result', [SpinController::class, 'confirmResult'])->name('confirm-result');
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/information', [InformationController::class, 'edit'])->name('information.edit');
         Route::post('/information', [InformationController::class, 'update'])->name('information.update');
+        Route::get('/rewards/{type}', [RewardController::class, 'index'])->name('rewards.type');
+        Route::get('/rewards/list/create', [RewardController::class, 'create'])->name('rewards.list.create');
+        Route::post('/rewards/remove/{reward}', [RewardController::class, 'remove'])->name('rewards.remove');
         Route::resources([
             'departments'   => DepartmentController::class,
             'attendances'   => AttendanceController::class,
             'users'         => UserController::class,
+            'rewards'       => RewardController::class,
         ]);
         Route::post('/delete-all-departments', [DepartmentController::class, 'deleteAll'])->name('delete-all-departments');
+        Route::post('/delete-all-rewards', [RewardController::class, 'deleteAll'])->name('delete-all-rewards');
         Route::post('/status-departments/{type}', [DepartmentController::class, 'statusDepartment'])->name('status-departments');
 
 
@@ -49,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
     });
     //Ajax
     Route::post('enable-column', [AjaxController::class, 'enableColumn'])->name('enable-column');
+    Route::post('sort-reward', [AjaxController::class, 'sortReward'])->name('sort-reward');
 });
 
 require __DIR__.'/auth.php';

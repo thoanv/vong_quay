@@ -25,22 +25,7 @@
                     <span class="nav-link-text ms-1">Vòng quay</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (request()->is('admin/information')) ? 'active bg-gradient-primary' : '' }}" href="{{route('information.edit')}}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">receipt_long</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Thông tin chung</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (request()->is('admin/departments')) ? 'active bg-gradient-primary' : '' }}" href="{{route('departments.index')}}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Phòng ban</span>
-                </a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link text-white {{(request()->is('admin/attendances')) ? 'active bg-gradient-primary' : '' }}" href="{{route('attendances.index')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -49,17 +34,24 @@
                     <span class="nav-link-text ms-1">Check In</span>
                 </a>
             </li>
+
+
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Cơ cấu giải thưởng</h6>
+            </li>
             <li class="nav-item">
-                <form action="{{route('logout')}}" method="POST" >
-                    @csrf
-                    <button class="nav-link btn" type="submit" style="width: 88%;text-transform: capitalize;">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">login</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Đăng xuất</span>
-                    </button>
-{{--                    <button type="submit" class="btn btn-primary btn-sm mb-0" onclick="return confirm('Bạn có muốn xóa không?')"> Xóa</button>--}}
-                </form>
+                <a class="nav-link text-white {{(request()->is('admin/rewards/*')) ? 'active bg-gradient-primary' : '' }}" href="{{route('rewards.type', 'list')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">hotel_class</i>
+                    </div><span class="nav-link-text ms-1">Giải thưởng</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{route('reward')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">auto_mode</i>
+                    </div><span class="nav-link-text ms-1">Thực hiện quay</span>
+                </a>
             </li>
             @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
             <li class="nav-item mt-3">
@@ -74,6 +66,37 @@
                 </a>
             </li>
             @endif
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Cài đặt</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (request()->is('admin/information')) ? 'active bg-gradient-primary' : '' }}" href="{{route('information.edit')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Thông tin hệ thống</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (request()->is('admin/departments')) ? 'active bg-gradient-primary' : '' }}" href="{{route('departments.index')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Phòng ban</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <form action="{{route('logout')}}" method="POST" >
+                    @csrf
+                    <button class="nav-link btn" type="submit" style="width: 88%;text-transform: capitalize;">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">login</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Đăng xuất</span>
+                    </button>
+                    {{--                    <button type="submit" class="btn btn-primary btn-sm mb-0" onclick="return confirm('Bạn có muốn xóa không?')"> Xóa</button>--}}
+                </form>
+            </li>
         </ul>
     </div>
 </aside>

@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
-                            @include('components.header', ['title' => 'Điểm danh thành công', 'about' => \App\Models\Information::find(1)])
+                            @include('components.header', ['title' => 'Đăng ký thành công', 'about' => \App\Models\Information::find(1)])
                             <div class="pyro"><div class="before"></div><div class="after"></div></div>
                             <div class="card-body attendance">
                                 <div class="box-result">

@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use App\Repositories\AttendanceRepository as AttendanceRepo;
 use App\Repositories\DepartmentRepository as DepartmentRepo;
 use App\Repositories\InformationRepository as InformationRepo;
+use App\Repositories\RewardRepository as RewardRepo;
 
 class SpinController extends Controller
 {
     protected $attendanceRepo;
     protected $departmentRepo;
     protected $informationRepo;
-    public function __construct(AttendanceRepo $attendanceRepo, DepartmentRepo $departmentRepo, InformationRepo $informationRepo)
+    protected $rewardRepo;
+    public function __construct(RewardRepo $rewardRepo, AttendanceRepo $attendanceRepo, DepartmentRepo $departmentRepo, InformationRepo $informationRepo)
     {
+        $this->rewardRepo = $rewardRepo;
         $this->attendanceRepo = $attendanceRepo;
         $this->departmentRepo = $departmentRepo;
         $this->informationRepo = $informationRepo;
@@ -31,6 +34,13 @@ class SpinController extends Controller
         ]);
     }
 
+    public function banhXe()
+    {
+        $about = $this->informationRepo->find(1);
+        return view('banh-xe', [
+            'about' => $about
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -111,5 +121,27 @@ class SpinController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function reward()
+    {
+        $about = $this->informationRepo->find(1);
+        $rewards = $this->rewardRepo->getRewards();
+        return view('reward', [
+            'about' => $about,
+            'rewards' => $rewards
+        ]);
+    }
+    public function confirmResult(Request $request)
+    {
+        $response = [
+            'success' => 100,
+            'data' => true,
+            'message' => ''
+        ];
+        $reward = $this->rewardRepo->find($request['id_reward']);
+        $reward->attendance_id = $request['id_attendance'];
+        $reward->save();
+        return $this->sendResponse($response, 'Success.');
     }
 }

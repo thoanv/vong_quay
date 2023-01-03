@@ -22,14 +22,19 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{asset('assets/css/material-dashboard.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/lib/select2/css/select2.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/lib/sweetalerts/sweetalert2.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     <style>
         .bg-gradient-primary{
             background-image: linear-gradient(356deg, {{$about['code_color'] ? $about['code_color'] : '#026938'}} 0%, {{$about['code_color'] ? $about['code_color'] : '#0269389e'}} 100%)!important;
         }
+        .bg-gradient-dark-css {
+            background-image: linear-gradient(195deg,{{$about['code_color'] ? $about['code_color'] : '#026938'}},{{$about['code_color'] ? $about['code_color'] : '#026938'}});
+        }
         .btn-primary-css{
             background-color: {{$about['code_color'] ? $about['code_color'] : '#026938'}};
             color: #FFF;
+            border: 1px solid {{$about['code_color'] ? $about['code_color'] : '#026938'}}!important;
         }
         .btn-primary-css:disabled{
             background-color: #FFF;
@@ -44,12 +49,19 @@
         .box-logo .logo{
             width: 80px;
         }
+        .swal2-default-outline{
+            background-color: {{$about['code_color'] ? $about['code_color'] : '#026938'}}!important;
+        }
+        .text-primarys{
+            color: {{$about['code_color'] ? $about['code_color'] : '#026938'}};
+        }
         @media only screen and (max-width: 768px){
             .box-logo .logo{
                 width: 50px;
             }
         }
     </style>
+    @stack('style')
 </head>
 <body style="background-image: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}');" class="attendance">
 {{--<div class="container top-0">--}}
@@ -84,6 +96,7 @@
 <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/lib/select2/js/select2.min.js')}}"></script>
+<script src="{{asset('assets/lib/sweetalerts/sweetalert2.all.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
 <script>
