@@ -19,6 +19,7 @@ class Information extends Model
         'fax',
         'description',
         'code_color',
-        'second'
+        'second',
+        'audio'
     ];
 }

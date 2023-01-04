@@ -8,14 +8,14 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
-                            @include('components.header', ['title' => 'Vòng quay may mắn', 'about' => \App\Models\Information::find(1)])
+                            @include('components.header', ['title' => 'Vòng quay may mắn', 'about' => $about])
                             <div class="pyro"><div class="before"></div><div class="after"></div></div>
                             <div class="card-body attendance">
                                 <div class="number-run mb-2">
                                     <span id="counter">0000</span>
                                 </div>
                                 <audio id="myAudio">
-                                    <source src="/assets/audio/music.mp3" type="audio/mpeg">
+                                    <source src="{{$about['audio'] ? $about['audio'] : '/assets/audio/music.mp3'}}" type="audio/mpeg">
                                 </audio>
                                 <div class="information text-center mt-4" style="display: none">
                                     <h4 class="mb-0 name">Nguyễn Văn Thỏa</h4>

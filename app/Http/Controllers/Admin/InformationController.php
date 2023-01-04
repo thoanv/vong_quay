@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Information;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\InformationRepository as InformationRepo;
@@ -93,9 +94,18 @@ class InformationController extends Controller
             $img = Storage::disk('public')->put('images', $request->background);
             $data['background'] = '/storage/'.$img;
         }
-
+        if($request->hasFile('audio')){
+            $uniqueid=uniqid();
+            $original_name=$request->file('audio')->getClientOriginalName();
+            $size=$request->file('audio')->getSize();
+            $extension=$request->file('audio')->getClientOriginalExtension();
+            $filename='audio.'.$extension;
+            $audiopath ='/storage/upload/files/audio/'.$filename;
+            $path = $request->file('audio')->storeAs('public/upload/files/audio/',$filename);
+            $data['audio'] = $audiopath;
+        }
         $this->informationRepo->update($data, 1);
-        return back();
+        return back()->with('success','Cập nhật thành công');;
     }
 
     /**

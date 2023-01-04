@@ -27,7 +27,7 @@
                                     <span id="counter">0000</span>
                                 </div>
                                 <audio id="myAudio">
-                                    <source src="/assets/audio/music.mp3" type="audio/mpeg">
+                                    <source src="{{$about['audio'] ? $about['audio'] : '/assets/audio/music.mp3'}}" type="audio/mpeg">
                                 </audio>
                                 <div class="information text-center mt-4" style="display: none">
                                     <span>Chúc mừng</span>

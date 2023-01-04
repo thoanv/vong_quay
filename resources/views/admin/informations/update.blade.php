@@ -11,6 +11,15 @@
         </nav>
 
         <div class="container py-4">
+            @if (session('success'))
+                <div class="row notification-submit">
+                    <div class="col-lg-12">
+                        <div class="alert alert-success  text-white " role="alert">
+                            <strong>Thao tác !</strong> {{ session('success') }}!
+                        </div>
+                    </div>
+                </div>
+            @endif
             <form method="POST" action="{{route('information.update')}}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{$infomation['id']}}">
@@ -128,13 +137,30 @@
                                             <input type="number" class="form-control form-control-lg" name="second" value="{{$infomation['second']}}" placeholder="10">
                                         </div>
                                     </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Audio</label>
+                                            <div class="d-flex">
+                                                <input type="file" class="form-control form-control-lg" name="audio" value="" accept=".mp3,audio/*">
+                                                @if($infomation['audio'])
+                                                    <a data-bs-toggle="tooltip" data-bs-placement="top" data-container="body" data-animation="true" data-bs-original-title="Nghe thử" style="color: red; font-size: 13px; font-style: italic; display: flex; justify-content: center; align-items: center; margin-left: 20px;" href="{{$infomation['audio']}}" target="_blank"><i class="material-icons opacity-10">play_circle</i></a>
+                                                @else
+                                                    <a data-bs-toggle="tooltip" data-bs-placement="top" data-container="body" data-animation="true" data-bs-original-title="Nghe thử" style="color: red; font-size: 13px; font-style: italic; display: flex; justify-content: center; align-items: center; margin-left: 20px;" href="/assets/audio/music.mp3" target="_blank"><i class="material-icons opacity-10">play_circle</i></a>
+                                                @endif
+                                            </div>
+
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
+
             </div>
+
             <div class="row">
                 <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
