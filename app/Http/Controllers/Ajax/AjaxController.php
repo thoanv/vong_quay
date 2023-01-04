@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Ajax;
+use App\Models\Attendance;
 use App\Models\Department;
 use App\Models\Reward;
 use App\Models\User;
@@ -25,7 +26,6 @@ class AjaxController extends BaseController
 
         $id = $request->get('id');
         $column = $request->get('column');
-
         $model = null;
         switch ($request->get('table')) {
             case 'departments':
@@ -36,6 +36,9 @@ class AjaxController extends BaseController
                 break;
             case 'rewards':
                 $model = Reward::find($id);
+                break;
+            case 'attendances':
+                $model = Attendance::find($id);
                 break;
             default:
                 break;

@@ -134,8 +134,8 @@
                                         <td class="align-middle text-center text-sm">
                                             <div class="form-check form-switch" style="display: inline-block">
                                                 <input class="form-check-input" name="my-checkbox" type="checkbox" data-id="{{$item['id']}}"
-                                                       data-api="{{route('enable-column')}}" data-table="departments"
-                                                       data-column="status"  {{ $item['status'] ? 'checked="checked"' : '' }}>
+                                                       data-api="{{route('enable-column')}}" data-table="attendances"
+                                                       data-column="status" {{ $item['status'] ? 'checked="checked"' : '' }}>
                                             </div>
                                         </td>
 

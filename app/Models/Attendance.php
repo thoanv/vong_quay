@@ -12,7 +12,8 @@ class Attendance extends Model
         'name',
         'phone',
         'code',
-        'department_id'
+        'department_id',
+        'status'
     ];
 
     public function department()
