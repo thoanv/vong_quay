@@ -63,7 +63,7 @@
     </style>
     @stack('style')
 </head>
-<body style="background-image: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}');" class="attendance">
+<body style="background-image: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}'); background-repeat: no-repeat" class="attendance">
 {{--<div class="container top-0">--}}
 {{--    <div class="row">--}}
 {{--        <div class="col-lg-12 text-center col-box-logo">--}}
