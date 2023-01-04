@@ -26,7 +26,7 @@
                                 <div class="number-run mb-2">
                                     <span id="counter">0000</span>
                                 </div>
-                                <audio id="myAudio">
+                                <audio id="myAudio" preload loop>
                                     <source src="{{$about['audio'] ? $about['audio'] : '/assets/audio/music.mp3'}}" type="audio/mpeg">
                                 </audio>
                                 <div class="information text-center mt-4" style="display: none">
