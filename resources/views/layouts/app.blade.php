@@ -63,33 +63,8 @@
     </style>
     @stack('style')
 </head>
-<body style="background-image: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}'); background-repeat: no-repeat" class="attendance">
-{{--<div class="container top-0">--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-lg-12 text-center col-box-logo">--}}
-{{--            <div class="box-logo bg-gradient-primary box-shadow">--}}
-{{--                <a  href="{{route('spin')}}">--}}
-{{--                    <img class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--<div class="container position-sticky z-index-sticky top-0">--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-12">--}}
-{{--            <!-- Navbar -->--}}
-{{--            <nav class="border-radius-xl top-0 z-index-3 text-center position-absolute my-3 py-2 start-0 end-0 mx-4">--}}
-{{--                <div class="container-fluid ps-2 pe-0">--}}
-{{--                    <a class="box-logo bg-gradient-primary navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{route('spin')}}">--}}
-{{--                        <img class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </nav>--}}
-{{--            <!-- End Navbar -->--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<body style="background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') center center no-repeat; background-size: cover; overflow-y: scroll;" class="attendance">
+
 @yield('content')
 <!--   Core JS Files   -->
 <script src="{{asset('assets/js/jquery-3.6.1.min.js')}}"></script>
