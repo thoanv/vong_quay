@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attendance;
+use App\Models\Department;
+use App\Models\Reward;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,7 +17,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $rewards = Reward::orderBy('serial', 'ASC')->paginate(5);
+        $attendances = Attendance::orderBy('id', 'DESC')->paginate(5);
+        $departments = Department::orderBy('id', 'DESC')->paginate(5);
+        return view('admin.dashboard', [
+            'rewards'       => $rewards,
+            'attendances'   => $attendances,
+            'departments'   => $departments
+        ]);
     }
 
     /**
