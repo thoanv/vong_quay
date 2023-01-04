@@ -18,10 +18,10 @@
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-body p-1 pb-2">
-                            <form class="theme-form" method="POST" action="{{route('departments.update', $department['id'])}}">
+                            <form class="theme-form" method="POST" action="{{route('rewards.update', $reward['id'])}}">
                                 @csrf
                                 @method('PATCH')
-                                @include($view.'._form',['department'=> $department])
+                                @include($view.'._form',['reward'=> $reward])
                             </form>
                         </div>
                     </div>

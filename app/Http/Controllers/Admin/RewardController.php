@@ -86,7 +86,7 @@ class RewardController extends Controller
     public function edit(Reward $reward)
     {
         if(!$reward) abort(404);
-        return view($this->view.'.create', [
+        return view($this->view.'.update', [
             'reward' => $reward,
             'view'  => $this->view
         ]);
@@ -99,9 +99,15 @@ class RewardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Reward $reward)
     {
-        //
+        $request->validate([
+            'name'  => 'required',
+        ]);
+        $data = $request->only('name', 'value', 'note');
+        $data['status'] = isset($request['status']) ? 1 : 0;
+        $this->rewardRepo->update($data, $reward['id']);
+        return redirect(route($this->route.'.index'))->with('success','Cập nhật thành công');
     }
 
     /**
