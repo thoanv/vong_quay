@@ -34,6 +34,9 @@ class AjaxController extends BaseController
             case 'users':
                 $model = User::find($id);
                 break;
+            case 'rewards':
+                $model = Reward::find($id);
+                break;
             default:
                 break;
         }
