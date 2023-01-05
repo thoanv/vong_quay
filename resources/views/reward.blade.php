@@ -65,7 +65,7 @@
                                             <h6 class="mb-0" style="font-size: 14px">{{$reward->attendance->name}}</h6>
                                             <p class="mb-0" style="font-size: 13px">{{$reward->attendance->phone}}</p>
                                             @if(isset($reward->attendance->department) && $reward->attendance->department)
-                                            <p class="mb-0" style="font-size: 13px">{{$item->attendance->department->name}}</p>
+                                            <p class="mb-0" style="font-size: 13px">{{$reward->attendance->department->name}}</p>
                                             @endif
                                         </div>
                                         @else
