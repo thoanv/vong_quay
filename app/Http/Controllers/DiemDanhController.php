@@ -8,16 +8,19 @@ use App\Models\Information;
 use Illuminate\Http\Request;
 use App\Repositories\DepartmentRepository as DepartmentRepo;
 use App\Repositories\AttendanceRepository as AttendanceRepo;
+use App\Repositories\InformationRepository as InformationRepo;
 use Illuminate\Support\Facades\Validator;
 
 class DiemDanhController extends Controller
 {
     protected $departmentRepo;
     protected $attendanceRepo;
-    public function __construct(DepartmentRepo $departmentRepo, AttendanceRepo $attendanceRepo)
+    protected $informationRepo;
+    public function __construct(DepartmentRepo $departmentRepo, AttendanceRepo $attendanceRepo, InformationRepo $informationRepo)
     {
         $this->departmentRepo = $departmentRepo;
         $this->attendanceRepo = $attendanceRepo;
+        $this->informationRepo = $informationRepo;
     }
     /**
      * Display a listing of the resource.
@@ -26,18 +29,20 @@ class DiemDanhController extends Controller
      */
     public function index()
     {
+        $about = $this->informationRepo->find(1);
         if(isset($_COOKIE['code']) && $_COOKIE['code']){
             $cookie = (int)$_COOKIE['code'];
             $attendance = $this->attendanceRepo->getAttendanceByCode($cookie);
             return redirect(route('success.attendance', $attendance));
         }
         $information = Information::find(1);
-        if($information['deadline'] < date('Y-m-d H:i:s')){
+        if($information['deadline'] && ($information['deadline'] < date('Y-m-d H:i:s'))){
             return view('deadline');
         }
         $departments = $this->departmentRepo->getDepartments();
         return view('attendance', [
-            'departments' => $departments
+            'departments' => $departments,
+            'about' => $about
         ]);
     }
     public static function generateOrderNumber($length = 4)

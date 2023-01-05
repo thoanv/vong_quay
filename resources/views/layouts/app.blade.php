@@ -47,7 +47,7 @@
             border: 1px solid {{$about['code_color'] ? $about['code_color'] : '#026938'}};
         }
         .box-logo .logo{
-            width: 80px;
+            width: 70px;
         }
         .swal2-default-outline{
             background-color: {{$about['code_color'] ? $about['code_color'] : '#026938'}}!important;

@@ -77,8 +77,10 @@ class InformationController extends Controller
      */
     public function update(Request $request)
     {
-        $data = $request->only('company', 'email', 'phone', 'address', 'code_color', 'second');
-        $data['deadline'] = date('Y-m-d H:i:s', strtotime($request->deadline));
+        $data = $request->only('company', 'email', 'phone', 'address', 'code_color', 'second', 'name_event');
+        if($request->deadline){
+            $data['deadline'] = date('Y-m-d H:i:s', strtotime($request->deadline));
+        }
         if($request->hasFile('logo')){
             $img = Storage::disk('public')->put('images', $request->logo);
             $data['logo'] = '/storage/'.$img;

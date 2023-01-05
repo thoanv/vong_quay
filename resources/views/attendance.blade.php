@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Điểm danh')
 @section('content')
+
     <main class="main-content mt-0 ps">
         <div class="page-header align-items-start min-vh-100">
             <span class="mask bg-gradient-dark opacity-6"></span>
@@ -8,7 +9,17 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
-                            @include('components.header', ['title' => 'Check In', 'about' => \App\Models\Information::find(1)])
+                            <div class="card-header p-0 position-relative mt-n7 mx-3 z-index-2">
+                                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1 text-center">
+                                    <a class="box-logo bg-gradient-primary navbar-brand font-weight-bolder ms-lg-0 ms-3" href="{{route('spin')}}">
+                                        <img class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">
+                                    </a>
+                                    <hr class="dark horizontal css">
+                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">MIRAKLE NIGHT
+                                        <br>YEAR END PARTY 2022</h4>
+
+                                </div>
+                            </div>
                             <div class="card-body attendance">
                                 <form method="POST" action="{{ route('post.attendance') }}">
                                     @csrf
@@ -64,7 +75,7 @@
 {{--                                    </div>--}}
 
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Xác nhận</button>
+                                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Check In</button>
                                     </div>
                                 </form>
                             </div>

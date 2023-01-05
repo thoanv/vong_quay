@@ -1,13 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Điểm danh')
 @section('content')
-    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none navbar-transparent">
-        <div class="container">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="">
-                <img style="width: 120px;" class="logo" src="{{$about['logo'] ? $about['logo'] : '../assets/img/logo.png'}}" alt="logo">
-            </a>
-        </div>
-    </nav>
+
     <main class="main-content mt-0 ps reward">
         <div class="page-header align-items-start min-vh-100">
             <span class="mask bg-gradient-dark opacity-6"></span>

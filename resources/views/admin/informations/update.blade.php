@@ -109,6 +109,12 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group mb-3">
+                                            <label>Tên sự kiện</label>
+                                            <input type="text" class="form-control form-control-lg" name="name_event" value="{{$infomation['name_event']}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-3">
                                             <label>Địa chỉ Email</label>
                                             <input type="email" class="form-control form-control-lg" name="email" value="{{$infomation['email']}}">
                                         </div>
