@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ListCheckInExport;
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Repositories\AttendanceRepository as AttendanceRepo;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
 {
@@ -25,6 +27,11 @@ class AttendanceController extends Controller
     public function index(Request $request)
     {
         $attendances = $this->attendanceRepo->getData($request);
+        if(isset($request->action) && $request->action === 'export'){
+            $dataArray =new \stdClass();
+            $dataArray->attendances = $attendances;
+            return Excel::download(new ListCheckInExport($dataArray), 'Danh sách check in.xlsx');
+        }
         return view($this->view.'.index', [
             'attendances' => $attendances,
             'request'  => $request

@@ -8,7 +8,7 @@
                         <a href="{{route('home')}}" class="nav-link text-white">QR code</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('attendance')}}" class="nav-link text-white">Điểm danh</a>
+                        <a href="{{route('attendance')}}" class="nav-link text-white">Check In</a>
                     </li>
                     @if(\Illuminate\Support\Facades\Auth::check())
                     <li class="nav-item">

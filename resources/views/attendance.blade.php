@@ -41,27 +41,27 @@
                                             </select>
                                         </div>
                                     @endif
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label for="captcha" class="form-label">Mã captcha</label>
-                                                <div class="captcha">
-                                                    <span>{!! Captcha::img('flat') !!}</span>
-                                                    <a href="javascript:void(0)" class="btn-reload" id="refresh"><i class="fa fa-refresh" ></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label for="captcha" class="form-label">Nhập kết quả *</label>
-                                                <input type="text" class="form-control apply-captcha" id="captcha" name="captcha" placeholder="Nhập kết quả...">
-                                                @if ($errors->has('captcha'))
-                                                    <div class="mt-1 notification-error">
-                                                        {{$errors->first('captcha')}}
-                                                    </div>
-                                                @endif
-                                            </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-lg-6">--}}
+{{--                                                <label for="captcha" class="form-label">Mã captcha</label>--}}
+{{--                                                <div class="captcha">--}}
+{{--                                                    <span>{!! Captcha::img('flat') !!}</span>--}}
+{{--                                                    <a href="javascript:void(0)" class="btn-reload" id="refresh"><i class="fa fa-refresh" ></i></a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-lg-6">--}}
+{{--                                                <label for="captcha" class="form-label">Nhập kết quả *</label>--}}
+{{--                                                <input type="text" class="form-control apply-captcha" id="captcha" name="captcha" placeholder="Nhập kết quả...">--}}
+{{--                                                @if ($errors->has('captcha'))--}}
+{{--                                                    <div class="mt-1 notification-error">--}}
+{{--                                                        {{$errors->first('captcha')}}--}}
+{{--                                                    </div>--}}
+{{--                                                @endif--}}
+{{--                                            </div>--}}
 
-                                        </div>
-                                    </div>
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Xác nhận</button>

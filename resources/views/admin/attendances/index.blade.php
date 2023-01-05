@@ -44,8 +44,9 @@
                                     </div>
                                     <div class="col-lg-3" style="display: flex; align-items: end">
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-sm">Tìm kiếm</button>
+                                            <button type="submit" class="btn btn-primary btn-sm" name="action" value="search">Tìm kiếm</button>
                                             <a href="{{route('attendances.index')}}" class="btn btn-danger btn-sm">Làm mới</a>
+                                            <button type="submit" class="btn btn-primary btn-sm" name="action" value="export">Export</button>
                                         </div>
                                     </div>
                                 </div>

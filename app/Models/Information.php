@@ -20,6 +20,7 @@ class Information extends Model
         'description',
         'code_color',
         'second',
-        'audio'
+        'audio',
+        'deadline'
     ];
 }

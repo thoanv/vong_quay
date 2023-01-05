@@ -25,7 +25,9 @@ class AttendanceRepository extends AbstractRepository
         if($request->status == 1){
             $query = $query->where('status', true);
         }
-
+        if(isset($request->action) && $request->action === 'export'){
+            return $query->orderBy('id', 'DESC')->get();
+        }
         return $query->orderBy('id', 'DESC')->paginate(20);
     }
     public function randomCode()

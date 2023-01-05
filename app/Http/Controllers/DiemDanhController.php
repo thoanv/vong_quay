@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAttendanceRequest;
 use App\Models\Attendance;
+use App\Models\Information;
 use Illuminate\Http\Request;
 use App\Repositories\DepartmentRepository as DepartmentRepo;
 use App\Repositories\AttendanceRepository as AttendanceRepo;
@@ -29,6 +30,10 @@ class DiemDanhController extends Controller
             $cookie = (int)$_COOKIE['code'];
             $attendance = $this->attendanceRepo->getAttendanceByCode($cookie);
             return redirect(route('success.attendance', $attendance));
+        }
+        $information = Information::find(1);
+        if($information['deadline'] < date('Y-m-d H:i:s')){
+            return view('deadline');
         }
         $departments = $this->departmentRepo->getDepartments();
         return view('attendance', [
@@ -74,7 +79,7 @@ class DiemDanhController extends Controller
         $validated = $request->validate([
             'phone' => 'required|unique:attendances',
             'full_name' => 'required',
-            'captcha'  => 'required|captcha'
+//            'captcha'  => 'required|captcha'
         ]);
         $data['name'] = $request->full_name;
         if($request['department_id'])

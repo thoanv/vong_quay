@@ -26,13 +26,13 @@
                                 <div class="number-run mb-2">
                                     <span id="counter">0000</span>
                                 </div>
-                                <audio id="myAudio" preload loop>
+                                <audio id="myAudio" preload>
                                     <source src="{{$about['audio'] ? $about['audio'] : '/assets/audio/music.mp3'}}" type="audio/mpeg">
                                 </audio>
                                 <div class="information text-center mt-4" style="display: none">
                                     <span>Chúc mừng</span>
-                                    <h4 class="mb-0 name">Nguyễn Văn Thỏa</h4>
-                                    <p class="phone mb-0">0356240993</p>
+                                    <h4 class="mb-0 name"></h4>
+                                    <p class="phone mb-0"></p>
                                     <span class="department"></span>
                                     <div class="list-button">
                                         <button class="btn mb-0 btn-primary-css confirm">Xác nhận</button>
@@ -204,7 +204,7 @@
             }, second)
         }
         function stop(){
-            x.pause();
+            // x.pause();
             $('.pyro').show();
             $('.information').show();
             clearInterval(timer);

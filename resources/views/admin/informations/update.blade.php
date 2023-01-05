@@ -137,7 +137,7 @@
                                             <input type="number" class="form-control form-control-lg" name="second" value="{{$infomation['second']}}" placeholder="10">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Audio</label>
                                             <div class="d-flex">
@@ -151,6 +151,12 @@
 
                                         </div>
 
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-3">
+                                            <label>Kết thúc check In</label>
+                                            <input type="datetime-local" class="form-control form-control-lg" name="deadline" value="{{$infomation['deadline']}}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
