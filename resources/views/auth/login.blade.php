@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Hệ thống đăng nhập')
 @section('content')
-    <main class="main-content mt-0 ps">
-        <div class="page-header align-items-start min-vh-100" >
-            <span class="mask bg-gradient-dark opacity-6"></span>
+
             <div class="container my-auto">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
@@ -33,13 +31,5 @@
                     </div>
                 </div>
             </div>
-            @include('layouts.footer')
-        </div>
-        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-        </div>
-        <div class="ps__rail-y" style="top: 0px; right: 0px;">
-            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-        </div>
-    </main>
+          
 @endsection
