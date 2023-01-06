@@ -25,6 +25,7 @@
     <link href="{{asset('assets/lib/sweetalerts/sweetalert2.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     <style>
+
         .bg-gradient-primary{
             background-image: linear-gradient(356deg, {{$about['code_color'] ? $about['code_color'] : '#026938'}} 0%, {{$about['code_color'] ? $about['code_color'] : '#0269389e'}} 100%)!important;
         }
@@ -45,6 +46,7 @@
             background-color: #FFF;
             color: {{$about['code_color'] ? $about['code_color'] : '#026938'}};
             border: 1px solid {{$about['code_color'] ? $about['code_color'] : '#026938'}};
+
         }
         .box-logo .logo{
             width: 70px;
@@ -62,6 +64,9 @@
         .card{
             box-shadow: 4px 8px 10px #000000c7;
         }
+        .card .card-body{
+            padding: 0.5rem 1.5rem;
+        }
         @media only screen and (max-width: 768px){
             .box-logo .logo{
                 width: 50px;
@@ -70,7 +75,7 @@
     </style>
     @stack('style')
 </head>
-<body style="background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') center center no-repeat; background-size: cover; overflow-y: scroll;" class="attendance">
+<body style=" background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') center center no-repeat; background-size: cover; overflow-y: scroll;" class="attendance">
 <main class="main-content mt-0 ps">
     <div class="page-header align-items-start min-vh-100">
         <span class="mask bg-gradient-dark opacity-0"></span>

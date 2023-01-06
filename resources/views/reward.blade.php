@@ -15,7 +15,7 @@
                         <div class="after"></div>
                     </div>
                     <div class="card-body attendance">
-                        <h1 class="name-reward-run text-center"></h1>
+                        <h3 class="name-reward-run text-center text-uppercase"></h3>
                         <div class="number-run mb-2">
                             <span id="counter">0000</span>
                         </div>
@@ -24,13 +24,13 @@
                                     type="audio/mpeg">
                         </audio>
                         <div class="information text-center mt-2" style="display: none">
-                            <h3 class="color-setup">Chúc mừng</h3>
-                            <h2 class="mb-0 name color-setup"></h2>
-                            <h3 class="phone mb-0 color-setup"></h3>
+                            <h6 class="color-setup mb-0">Chúc mừng</h6>
+                            <h4 class="mb-0 name color-setup"></h4>
+                            <h5 class="phone mb-0 color-setup"></h5>
                             <span class="department color-setup"></span>
                             <div class="list-button mt-3">
-                                <button class="btn mb-0 btn-primary-css confirm">Xác nhận</button>
-                                <button class="btn mb-0 btn-primary-css come-back">Quay lại</button>
+                                <button class="btn mb-0 btn-primary-css confirm btn-sm">Xác nhận</button>
+                                <button class="btn mb-0 btn-primary-css come-back btn-sm">Quay lại</button>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                 <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-header p-0 position-relative mt-n5 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1 text-center">
-                            <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Giải thưởng</h4>
+                            <h4 class="text-white font-weight-bolder text-center mt-2 mb-0 text-uppercase">Giải thưởng</h4>
                         </div>
                     </div>
                     <div class="pyro">
