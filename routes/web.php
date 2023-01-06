@@ -52,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
 
 
         Route::post('/delete-all-attendances', [AttendanceController::class, 'deleteAll'])->name('delete-all-attendances');
+        Route::post('/remove-winners', [AttendanceController::class, 'removeWinners'])->name('remove-winners');
         //Import database phòng ban
         Route::get('/import-view-departments', [DepartmentController::class, 'importView'])->name('import-view-departments');
         Route::post('/import-departments', [DepartmentController::class, 'import'])->name('import-departments');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\ListCheckInExport;
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
+use App\Models\Reward;
 use Illuminate\Http\Request;
 use App\Repositories\AttendanceRepository as AttendanceRepo;
 use Illuminate\Support\Facades\DB;
@@ -109,5 +110,15 @@ class AttendanceController extends Controller
     {
         DB::table('attendances')->delete();
         return redirect()->back()->with('success','Xóa thành công');
+    }
+
+    public function removeWinners()
+    {
+        $rewards = Reward::get();
+        foreach ($rewards as $reward){
+            $reward['attendance_id'] = 0;
+            $reward->save();
+        }
+        return redirect()->back()->with('success','Gỡ tất cả người trúng thưởng thành công');
     }
 }

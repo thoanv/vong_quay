@@ -99,8 +99,16 @@
                                             <form class="d-inline-block" action="{{route('delete-all-rewards')}}"
                                                   method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-primary btn-sm"
+                                                <button type="submit" class="btn btn-primary btn-sm me-1"
                                                         onclick="return confirm('Bạn có muốn xóa tất cả không?')"> Xóa
+                                                    tất cả
+                                                </button>
+                                            </form>
+                                            <form class="d-inline-block" action="{{route('remove-winners')}}"
+                                                  method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary btn-sm me-1"
+                                                        onclick="return confirm('Bạn có muốn gỡ tất cả nhưỡng người trúng thưởng không?')"> Gỡ
                                                     tất cả
                                                 </button>
                                             </form>
