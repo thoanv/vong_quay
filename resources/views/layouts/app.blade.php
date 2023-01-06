@@ -55,6 +55,13 @@
         .text-primarys{
             color: {{$about['code_color'] ? $about['code_color'] : '#026938'}};
         }
+        .number-run #counter, .name-reward-run, .card .card-body h5, .color-setup, .box-result .number-code{
+            color: {{$about['code_color'] ? $about['code_color'] : '#026938'}}!important;
+            text-shadow: 0px 4px 20px #fff;
+        }
+        .card{
+            box-shadow: 4px 8px 10px #000000c7;
+        }
         @media only screen and (max-width: 768px){
             .box-logo .logo{
                 width: 50px;
@@ -64,8 +71,20 @@
     @stack('style')
 </head>
 <body style="background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') center center no-repeat; background-size: cover; overflow-y: scroll;" class="attendance">
+<main class="main-content mt-0 ps">
+    <div class="page-header align-items-start min-vh-100">
+        <span class="mask bg-gradient-dark opacity-0"></span>
+        @yield('content')
 
-@yield('content')
+        @include('layouts.footer')
+    </div>
+    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+    </div>
+    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+    </div>
+</main>
 <!--   Core JS Files   -->
 <script src="{{asset('assets/js/jquery-3.6.1.min.js')}}"></script>
 <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
