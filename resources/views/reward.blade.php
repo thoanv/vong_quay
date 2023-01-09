@@ -52,24 +52,24 @@
                             <div class="d-flex">
                                 <div class="my-auto ms-3">
                                     <div class="h-100">
-                                        <h5 class="mb-0 font-size-16 color-setup">
+                                        <h5 class="mb-0 font-size-14 color-setup">
                                             {{$reward['name']}}
                                         </h5>
-                                        <p class="mb-0 tex-css-text-second">{{$reward['value']}}</p>
+                                        <p class="mb-0 text-css-text-second">{{$reward['value']}}</p>
                                     </div>
                                 </div>
 
                                 <div class="form-check form-switch my-auto ms-auto my-auto">
                                     @if($reward['attendance_id'] && $reward->attendance)
                                         <div class="text-right">
-                                            <h5 class="mb-0 color-setup font-size-16">{{$reward->attendance->name}} @if($reward->attendance)
+                                            <h5 class="mb-0 color-setup font-size-14">{{$reward->attendance->name}} @if($reward->attendance)
                                                     <span>- {{$reward->attendance->code}}</span>
                                                 @endif</h5>
 
                                             @if(isset($reward->attendance->department) && $reward->attendance->department)
-                                                <p class="mb-0 tex-css-text-second">({{$reward->attendance->department->name}} - {{$reward->attendance->phone}})</p>
+                                                <p class="mb-0 text-css-text-second">({{$reward->attendance->department->name}} - {{$reward->attendance->phone}})</p>
                                             @else
-                                                <p class="mb-0 tex-css-text-second">{{$reward->attendance->phone}}</p>
+                                                <p class="mb-0 text-css-text-second">{{$reward->attendance->phone}}</p>
                                             @endif
                                         </div>
                                     @else
