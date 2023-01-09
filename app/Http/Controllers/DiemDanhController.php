@@ -30,16 +30,23 @@ class DiemDanhController extends Controller
     public function index()
     {
         $about = $this->informationRepo->find(1);
+        $departments = $this->departmentRepo->getDepartments();
         if(isset($_COOKIE['code']) && $_COOKIE['code']){
             $cookie = (int)$_COOKIE['code'];
             $attendance = $this->attendanceRepo->getAttendanceByCode($cookie);
+            if(!$attendance){
+                unset($_COOKIE['code']);
+                return view('attendance', [
+                    'departments' => $departments,
+                    'about' => $about
+                ]);
+            }
             return redirect(route('success.attendance', $attendance));
         }
         $information = Information::find(1);
         if($information['deadline'] && ($information['deadline'] < date('Y-m-d H:i:s'))){
             return view('deadline');
         }
-        $departments = $this->departmentRepo->getDepartments();
         return view('attendance', [
             'departments' => $departments,
             'about' => $about
