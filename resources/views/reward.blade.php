@@ -193,9 +193,9 @@
                         code = data.code;
                         let txt = '';
                         if (data.department)
-                            txt_ = `(${data.department} - ${data.phone})`
+                            txt = `(${data.department} - ${data.phone})`
                         else
-                            txt_ = `(${data.phone})`
+                            txt = `(${data.phone})`
                         $('.name').html(data.name)
                         $('.phone').html(txt)
                     }
