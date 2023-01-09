@@ -52,7 +52,7 @@
                             <div class="d-flex">
                                 <div class="my-auto ms-3">
                                     <div class="h-100">
-                                        <h5 class="mb-0 font-size-16">
+                                        <h5 class="mb-0 font-size-16 color-setup">
                                             {{$reward['name']}}
                                         </h5>
                                         <p class="mb-0 tex-css-text-second">{{$reward['value']}}</p>
