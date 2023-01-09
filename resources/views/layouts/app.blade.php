@@ -75,7 +75,7 @@
     </style>
     @stack('style')
 </head>
-<body style=" background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') center center no-repeat; background-size: cover; overflow-y: scroll;" class="attendance">
+<body style=" background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') top center no-repeat; background-size: cover; overflow-y: scroll;" class="attendance">
 <main class="main-content mt-0 ps">
     <div class="page-header align-items-start min-vh-100">
         <span class="mask bg-gradient-dark opacity-0"></span>
