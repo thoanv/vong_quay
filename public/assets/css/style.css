@@ -130,7 +130,7 @@
     align-items: center;
 }
 .number-run #counter{
-    border: 5px solid;
+    /*border: 5px solid;*/
     border-radius: 50%;
     font-size: 110px;
     height: 350px;
@@ -335,8 +335,8 @@
         margin-top: 30%;
         margin-left: 80%; } }
 .information{
-    border: 2px solid #026938;
-    border-radius: 5px;
+    /*border: 2px solid #026938;*/
+    /*border-radius: 5px;*/
     padding: 10px 0;
     color: #026938;
 }
@@ -353,13 +353,31 @@
     left: unset!important;
 }
 .reward .number-run #counter{
-    font-size: 180px;
+    font-size: 160px;
     width: 100%;
+    border: unset;
     border-radius: unset!important;
-    border: 2px solid!important;
-    height: 190px
-    /*border: unset;*/
+    /*border-bottom: 1px solid!important;*/
+    height: 170px /*border: unset;*/;
 }
 .reward .information{
-    border: unset!important;
+    /*border: unset!important;*/
+    border-top: 1px solid #026938;
+}
+.text-black{
+    color: #000!important;
+}
+.font-size-18{
+    font-size: 1.8rem;
+}
+.font-size-16{
+    font-size: 1.6rem;
+}
+.text-right{
+    text-align: right!important;
+}
+.tex-css-text-second{
+    font-size: 18px;
+    color: #000;
+    font-weight: 700;
 }

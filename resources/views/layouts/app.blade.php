@@ -57,7 +57,7 @@
         .text-primarys{
             color: {{$about['code_color'] ? $about['code_color'] : '#026938'}};
         }
-        .number-run #counter, .name-reward-run, .card .card-body h5, .color-setup, .box-result .number-code{
+        .number-run #counter, .color-setup, .box-result .number-code{
             color: {{$about['code_color'] ? $about['code_color'] : '#026938'}}!important;
             text-shadow: 0px 4px 20px #fff;
         }
@@ -65,7 +65,10 @@
             box-shadow: 4px 8px 10px #000000c7;
         }
         .card .card-body{
-            padding: 0.5rem 1.5rem;
+            padding: 1rem 1.5rem;
+        }
+        .name-reward-run{
+            color: #000;
         }
         @media only screen and (max-width: 768px){
             .box-logo .logo{

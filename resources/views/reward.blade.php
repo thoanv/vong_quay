@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid my-auto reward">
         <div class="row">
-            <div class="col-lg-7 col-md-7 col-12 mx-auto">
+            <div class="col-lg-5 col-md-5 col-12 mx-auto">
                 <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-header p-0 position-relative mt-n5 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1 text-center">
@@ -15,7 +15,7 @@
                         <div class="after"></div>
                     </div>
                     <div class="card-body attendance">
-                        <h3 class="name-reward-run text-center text-uppercase"></h3>
+                        <h3 class="name-reward-run text-center text-uppercase" ></h3>
                         <div class="number-run mb-2">
                             <span id="counter">0000</span>
                         </div>
@@ -24,10 +24,10 @@
                                     type="audio/mpeg">
                         </audio>
                         <div class="information text-center mt-2" style="display: none">
-                            <h6 class="color-setup mb-0">Chúc mừng</h6>
-                            <h4 class="mb-0 name color-setup"></h4>
-                            <h5 class="phone mb-0 color-setup"></h5>
-                            <span class="department color-setup"></span>
+                            <h5 class="mb-0 text-uppercase text-black">Chúc mừng</h5>
+                            <h2 class="mb-0 name font-weight-bold"></h2>
+                            <h5 class="phone mb-0 text-black"></h5>
+{{--                            <span class="department color-setup">Ban Công nghệ</span>--}}
                             <div class="list-button mt-3">
                                 <button class="btn mb-0 btn-primary-css confirm btn-sm">Xác nhận</button>
                                 <button class="btn mb-0 btn-primary-css come-back btn-sm">Quay lại</button>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-12 mx-auto">
+            <div class="col-lg-5 col-md-5 col-12 mx-auto">
                 <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-header p-0 position-relative mt-n5 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1 text-center">
@@ -52,24 +52,24 @@
                             <div class="d-flex">
                                 <div class="my-auto ms-3">
                                     <div class="h-100">
-                                        <h5 class="mb-0">
+                                        <h5 class="mb-0 font-size-16">
                                             {{$reward['name']}}
-                                            @if($reward->attendance)
-                                                <span style="color: red; font-size: 18px">({{$reward->attendance->code}})</span>
-                                            @endif
                                         </h5>
-                                        <p class="mb-0 text-sm">{{$reward['value']}}</p>
+                                        <p class="mb-0 tex-css-text-second">{{$reward['value']}}</p>
                                     </div>
                                 </div>
 
                                 <div class="form-check form-switch my-auto ms-auto my-auto">
                                     @if($reward['attendance_id'] && $reward->attendance)
-                                        <div class="text-center">
-                                            <h6 class="mb-0 color-setup" style="font-size: 14px">{{$reward->attendance->name}}</h6>
-                                            <p class="mb-0 " style="font-size: 13px">{{$reward->attendance->phone}}</p>
+                                        <div class="text-right">
+                                            <h5 class="mb-0 color-setup font-size-16">{{$reward->attendance->name}} @if($reward->attendance)
+                                                    <span>- {{$reward->attendance->code}}</span>
+                                                @endif</h5>
+
                                             @if(isset($reward->attendance->department) && $reward->attendance->department)
-                                                <p class="mb-0"
-                                                   style="font-size: 13px">{{$reward->attendance->department->name}}</p>
+                                                <p class="mb-0 tex-css-text-second">({{$reward->attendance->department->name}} - {{$reward->attendance->phone}})</p>
+                                            @else
+                                                <p class="mb-0 tex-css-text-second">{{$reward->attendance->phone}}</p>
                                             @endif
                                         </div>
                                     @else
@@ -191,10 +191,13 @@
                         $('.confirm').attr('data-id', id);
                         $('.confirm').attr('data-attendance', data.id);
                         code = data.code;
-                        $('.name').html(data.name)
-                        $('.phone').html(data.phone)
+                        let txt = '';
                         if (data.department)
-                            $('.department').html(data.department)
+                            txt_ = `(${data.department} - ${data.phone})`
+                        else
+                            txt_ = `(${data.phone})`
+                        $('.name').html(data.name)
+                        $('.phone').html(txt)
                     }
                 }
             });
