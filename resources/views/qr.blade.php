@@ -10,7 +10,7 @@
 
     <div class="container my-auto">
         <div class="row">
-            <div class="col-lg-4 col-md-8 col-12 mx-auto">
+            <div class="col-lg-4 col-md-8 col-12 mx-auto mt-mobile">
                 <div class="card z-index-0 fadeIn3 fadeInBottom">
                     @include('components.header', ['title' => 'QR Code', 'about' => \App\Models\Information::find(1)])
                     <div class="card-body">

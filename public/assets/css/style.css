@@ -376,8 +376,14 @@
 .font-size-14{
     font-size: 1.4rem;
 }
+.font-size-13{
+    font-size: 1.3rem;
+}
 .text-right{
     text-align: right!important;
+}
+.text-left{
+    text-align: left!important;
 }
 .text-css-text-second{
     font-size: 18px;

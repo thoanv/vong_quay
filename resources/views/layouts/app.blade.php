@@ -70,15 +70,26 @@
         .name-reward-run{
             color: #000;
         }
+        .bg-body {
+             background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') top center no-repeat;
+             background-size: cover;
+             overflow-y: scroll;
+         }
         @media only screen and (max-width: 768px){
             .box-logo .logo{
                 width: 50px;
+            }
+            .bg-body {
+                background: url("/assets/img/bg_mobile.jpg") top center no-repeat;
+            }
+            .mt-mobile{
+                margin-top: 100px;
             }
         }
     </style>
     @stack('style')
 </head>
-<body style=" background: url('{{$about['background'] ? $about['background'] : '../assets/img/bg.jpg'}}') top center no-repeat; background-size: cover; overflow-y: scroll;" class="attendance">
+<body style="" class="attendance bg-body">
 <main class="main-content mt-0 ps">
     <div class="page-header align-items-start min-vh-100">
         <span class="mask bg-gradient-dark opacity-0"></span>
