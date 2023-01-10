@@ -81,6 +81,7 @@
             }
             .bg-body {
                 background: url("/assets/img/bg_mobile.png") top center no-repeat;
+                background-size: cover;
             }
             .mt-mobile{
                 margin-top: 110px;
