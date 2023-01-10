@@ -80,7 +80,7 @@
                 width: 50px;
             }
             .bg-body {
-                background: url("/assets/img/bg_mobile.jpg") top center no-repeat;
+                background: url("/assets/img/bg_mobile.png") top center no-repeat;
             }
             .mt-mobile{
                 margin-top: 110px;

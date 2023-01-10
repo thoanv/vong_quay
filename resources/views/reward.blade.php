@@ -50,26 +50,26 @@
                     <div class="card-body attendance">
                         @foreach($rewards as $key => $reward)
                             <div class="d-flex">
-                                <div class="my-auto ms-3">
+                                <div class="my-auto ms-3" style="width: 50%;">
                                     <div class="h-100">
-                                        <h5 class="mb-0 font-size-14 color-setup text-uppercase">
+                                        <h5 class="mb-0 font-size-13 color-setup text-uppercase">
                                             {{$reward['name']}}
                                         </h5>
                                         <p class="mb-0 text-css-text-second">{{$reward['value']}}</p>
                                     </div>
                                 </div>
 
-                                <div class="form-check form-switch my-auto ms-auto my-auto">
+                                <div class="form-check form-switch">
                                     @if($reward['attendance_id'] && $reward->attendance)
                                         <div class="text-left">
-                                            <h5 class="mb-0 color-setup font-size-14 text-uppercase">{{$reward->attendance->name}} @if($reward->attendance)
+                                            <h5 class="mb-0 color-setup font-size-13 text-uppercase">{{$reward->attendance->name}} @if($reward->attendance)
                                                     <span>- {{$reward->attendance->code}}</span>
                                                 @endif</h5>
 
                                             @if(isset($reward->attendance->department) && $reward->attendance->department)
                                                 <p class="mb-0 text-css-text-second">{{$reward->attendance->department->name}}</p>
                                             @endif
-                                            <p class="mb-0 text-css-text-second">{{$reward->attendance->phone}}</p>
+                                            <p class="mb-0 text-css-text-second">xxx xxx{{substr($reward->attendance->phone, -4)}}</p>
                                         </div>
                                     @else
                                         <div class="spinner-border text-primarys spinner-reward-{{$reward['id']}}"

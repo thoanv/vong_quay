@@ -68,11 +68,12 @@ class SpinController extends Controller
         $code['department'] = '';
         if($code && $code['department_id']){
            $department = $this->departmentRepo->find($code['department_id']);
+           $code['phones'] = 'xxx xxx'.substr($code['phone'], -4);
            if($department){
                $code['department'] = $department->name;
            }
         }
-
+        $code['phone'] = 'xxx xxx'.substr($code['phone'], -4);
         $response['data'] = $code;
 
         return $this->sendResponse($response, 'Success.');
