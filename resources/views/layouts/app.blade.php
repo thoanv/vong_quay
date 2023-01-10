@@ -83,7 +83,7 @@
                 background: url("/assets/img/bg_mobile.jpg") top center no-repeat;
             }
             .mt-mobile{
-                margin-top: 100px;
+                margin-top: 110px;
             }
         }
     </style>
