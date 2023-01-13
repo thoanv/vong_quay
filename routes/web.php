@@ -40,6 +40,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/rewards/{type}', [RewardController::class, 'index'])->name('rewards.type');
         Route::get('/rewards/list/create', [RewardController::class, 'create'])->name('rewards.list.create');
         Route::post('/rewards/remove/{reward}', [RewardController::class, 'remove'])->name('rewards.remove');
+        Route::get('/thay-doi-mat-khau',[UserController::class, 'showChangePasswordGet'])->name('changePasswordGet');
+        Route::post('/changePassword',[UserController::class, 'changePasswordPost'])->name('changePasswordPost');
+        Route::post('/reset-password/{user}', [UserController::class , 'resetPassword'])->name('user.reset-pass');
         Route::resources([
             'departments'   => DepartmentController::class,
             'attendances'   => AttendanceController::class,

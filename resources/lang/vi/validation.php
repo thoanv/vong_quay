@@ -164,7 +164,8 @@ return [
         'phone' => 'Số điện thoại',
         'captcha' => 'Kết quả',
         'name'    => 'Tên',
-        'file'    => 'File'
+        'file'    => 'File',
+        'department_id' => 'Phòng ban',
     ],
 
 ];

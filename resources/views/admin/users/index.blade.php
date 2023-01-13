@@ -83,6 +83,7 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Thời gian đăng ký</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Trạng thái</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Admin</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Mật khẩu mới</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hành động</th>
                                     </tr>
                                     </thead>
@@ -130,10 +131,18 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
+                                           {{$item['password_reset']}}
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
                                             <form class="d-inline-block" action="{{ route('attendances.destroy', $item) }}" method="POST" >
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-primary btn-sm mb-0" onclick="return confirm('Bạn có muốn xóa không?')"> Xóa</button>
+                                            </form>
+                                            <form class="d-inline-block" action="{{route('user.reset-pass', $item)}}" method="POST" >
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary btn-sm mb-0" onclick="return confirm('Bạn có muốn reset lại mật khẩu không?')">
+                                                    Reset MK</button>
                                             </form>
                                         </td>
                                     </tr>

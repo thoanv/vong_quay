@@ -5,7 +5,7 @@
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    <h6 class="font-weight-bolder mb-0">Cập nhật thông tin phòng ban</h6>
+                    <h6 class="font-weight-bolder mb-0">Thêm mới thông tin phòng ban</h6>
                 </nav>
             </div>
         </nav>
@@ -18,10 +18,10 @@
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-body p-1 pb-2">
-                            <form class="theme-form" method="POST" action="{{route('departments.update', $department['id'])}}">
+                            <form class="theme-form" method="POST" action="{{route('attendances.update', $attendance['id'])}}">
                                 @csrf
                                 @method('PATCH')
-                                @include($view.'._form',['department'=> $department])
+                                @include($view.'._form',['attendance'=> $attendance])
                             </form>
                         </div>
                     </div>

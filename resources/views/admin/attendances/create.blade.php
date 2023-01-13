@@ -18,9 +18,9 @@
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-body p-1 pb-2">
-                            <form class="theme-form" method="POST" action="{{route('departments.store')}}">
+                            <form class="theme-form" method="POST" action="{{route('attendances.store')}}">
                                 @csrf
-                                @include($view.'._form',['department'=> $department])
+                                @include($view.'._form',['attendance'=> $attendance])
                             </form>
                         </div>
                     </div>

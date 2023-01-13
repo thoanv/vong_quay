@@ -93,6 +93,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white {{ (request()->is('admin/thay-doi-mat-khau')) ? 'active bg-gradient-primary' : '' }}" href="{{route('changePasswordGet')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">password</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Đổi mật khẩu</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <form action="{{route('logout')}}" method="POST" >
                     @csrf
                     <button class="nav-link btn" type="submit" style="width: 88%;text-transform: capitalize;">

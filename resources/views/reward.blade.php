@@ -52,7 +52,7 @@
                             <div class="d-flex">
                                 <div class="my-auto ms-3" style="width: 50%;">
                                     <div class="h-100">
-                                        <h5 class="mb-0 font-size-13 color-setup text-uppercase">
+                                        <h5 class="mb-0 font-size-12 color-setup text-uppercase">
                                             {{$reward['name']}}
                                         </h5>
                                         <p class="mb-0 text-css-text-second">{{$reward['value']}}</p>
@@ -62,7 +62,7 @@
                                 <div class="form-check form-switch">
                                     @if($reward['attendance_id'] && $reward->attendance)
                                         <div class="text-left">
-                                            <h5 class="mb-0 color-setup font-size-13 text-uppercase">{{$reward->attendance->name}} @if($reward->attendance)
+                                            <h5 class="mb-0 color-setup font-size-12 text-uppercase">{{$reward->attendance->name}} @if($reward->attendance)
                                                     <span>- {{$reward->attendance->code}}</span>
                                                 @endif</h5>
 

@@ -23,7 +23,8 @@ class User extends Authenticatable
         'password',
         'status',
         'is_admin',
-        'time_use'
+        'time_use',
+        'password_reset'
     ];
 
     /**
