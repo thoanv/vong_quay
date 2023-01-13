@@ -80,6 +80,13 @@ class InformationController extends Controller
         $data = $request->only('company', 'email', 'phone', 'address', 'code_color', 'second', 'name_event');
         if($request->deadline){
             $data['deadline'] = date('Y-m-d H:i:s', strtotime($request->deadline));
+        }else{
+            $data['deadline'] = Null;
+        }
+        if($request->start_date){
+            $data['start_date'] = date('Y-m-d H:i:s', strtotime($request->start_date));
+        }else{
+            $data['start_date'] = Null;
         }
         if($request->hasFile('logo')){
             $img = Storage::disk('public')->put('images', $request->logo);
@@ -89,9 +96,9 @@ class InformationController extends Controller
             $img = Storage::disk('public')->put('images', $request->favicon);
             $data['favicon'] = '/storage/'.$img;
         }
-        if($request->hasFile('thumbnail')){
-            $img = Storage::disk('public')->put('images', $request->thumbnail);
-            $data['thumbnail'] = '/storage/'.$img;
+        if($request->hasFile('background_mobile')){
+            $img = Storage::disk('public')->put('images', $request->background_mobile);
+            $data['background_mobile'] = '/storage/'.$img;
         }
         if($request->hasFile('background')){
             $img = Storage::disk('public')->put('images', $request->background);
@@ -120,5 +127,12 @@ class InformationController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function removeAudio()
+    {
+        $data['audio'] = Null;
+        $this->informationRepo->update($data, 1);
+        return back()->with('success','Cập nhật thành công');
     }
 }

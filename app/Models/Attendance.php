@@ -13,7 +13,8 @@ class Attendance extends Model
         'phone',
         'code',
         'department_id',
-        'status'
+        'status',
+        'is_otp'
     ];
 
     public function department()

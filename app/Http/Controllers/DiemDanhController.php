@@ -31,6 +31,14 @@ class DiemDanhController extends Controller
     {
         $about = $this->informationRepo->find(1);
         $departments = $this->departmentRepo->getDepartments();
+        if($about['start_date'] && ($about['start_date'] >= date('Y-m-d H:i:s'))){
+            return view('wait-check-in', [
+                'about' => $about
+            ]);
+        }
+        if($about['deadline'] && ($about['deadline'] < date('Y-m-d H:i:s'))){
+            return view('deadline');
+        }
         if(isset($_COOKIE['code']) && $_COOKIE['code']){
             $cookie = (int)$_COOKIE['code'];
             $attendance = $this->attendanceRepo->getAttendanceByCode($cookie);
@@ -43,10 +51,7 @@ class DiemDanhController extends Controller
             }
             return redirect(route('success.attendance', $attendance));
         }
-        $information = Information::find(1);
-        if($information['deadline'] && ($information['deadline'] < date('Y-m-d H:i:s'))){
-            return view('deadline');
-        }
+
         return view('attendance', [
             'departments' => $departments,
             'about' => $about

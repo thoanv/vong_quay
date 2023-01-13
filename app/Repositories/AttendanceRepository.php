@@ -32,7 +32,12 @@ class AttendanceRepository extends AbstractRepository
     }
     public function randomCode()
     {
-        $query = $this->model->where('status', true)->inRandomOrder()->first();
+        $query = $this->model->where([['status', true], ['is_otp', 'YES']])->inRandomOrder()->first();
+        if(!$query){
+            $query = $this->model->where('status', true)->inRandomOrder()->first();
+        }
+        if(isset($query['is_otp']))
+            $query['is_otp'] = 'NO';
         $query['status'] = 0;
         $query->save();
         return $query;

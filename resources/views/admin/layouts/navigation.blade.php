@@ -18,6 +18,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white " href="{{route('home')}}" target="_blank">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">qr_code_scanner</i>
+                    </div>
+                    <span class="nav-link-text ms-1">QR code</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white " href="{{route('spin')}}" target="_blank">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">autorenew</i>
@@ -25,7 +33,6 @@
                     <span class="nav-link-text ms-1">Vòng quay</span>
                 </a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link text-white {{(request()->is('admin/attendances')) ? 'active bg-gradient-primary' : '' }}" href="{{route('attendances.index')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

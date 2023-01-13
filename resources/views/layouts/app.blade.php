@@ -57,7 +57,7 @@
         .text-primarys{
             color: {{$about['code_color'] ? $about['code_color'] : '#026938'}};
         }
-        .number-run #counter, .color-setup, .box-result .number-code{
+        .number-run #counter, .color-setup, .box-result .number-code, .countdown .number{
             color: {{$about['code_color'] ? $about['code_color'] : '#026938'}}!important;
             text-shadow: 0px 4px 20px #fff;
         }
@@ -80,12 +80,16 @@
                 width: 50px;
             }
             .bg-body {
-                background: url("/assets/img/bg_mobile.png") top center no-repeat;
+                background: url('{{$about['background_mobile'] ? $about['background_mobile'] : '../assets/img/bg.jpg'}}') top center no-repeat;
                 background-size: cover;
             }
             .mt-mobile{
                 margin-top: 110px;
             }
+        }
+        .select2-results__option{
+            padding: 3px 10px!important;
+            border-bottom: 1px solid #f1f1f1;
         }
     </style>
     @stack('style')

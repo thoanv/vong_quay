@@ -7,6 +7,7 @@ use App\Models\Reward;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Ajax\BaseController as BaseController;
 
@@ -53,6 +54,33 @@ class AjaxController extends BaseController
         }
 
         return $this->sendResponse(false, 'successfully.');
+    }
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function enableColumnOtp(Request $request)
+    {
+        if (Auth::user()->is_admin){
+            Validator::make($request->all(), [
+                'id' => 'required',
+                'table' => 'required',
+                'column' => 'required',
+            ])->validate();
+
+            $id = $request->get('id');
+            $column = $request->get('column');
+            $model = Attendance::find($id);
+            if ($model) {
+                $result = $model->update([
+                    $column => $model[$column] == 'YES' ? 'NO' : 'YES'
+                ]);
+
+                return $this->sendResponse($result, 'successfully.');
+            }
+        }
+
+        return $this->sendResponse(false, 'error.');
     }
 
     public function sortReward(Request $request)

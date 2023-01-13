@@ -21,7 +21,9 @@ class Information extends Model
         'code_color',
         'second',
         'audio',
+        'start_date',
         'deadline',
-        'name_event'
+        'name_event',
+        'background_mobile'
     ];
 }

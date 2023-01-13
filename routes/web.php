@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
             'users'         => UserController::class,
             'rewards'       => RewardController::class,
         ]);
+        Route::post('/remove-audio', [InformationController::class, 'removeAudio'])->name('remove-audio');
         Route::post('/delete-all-departments', [DepartmentController::class, 'deleteAll'])->name('delete-all-departments');
         Route::post('/delete-all-rewards', [RewardController::class, 'deleteAll'])->name('delete-all-rewards');
         Route::post('/status-departments/{type}', [DepartmentController::class, 'statusDepartment'])->name('status-departments');
@@ -59,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
     });
     //Ajax
     Route::post('enable-column', [AjaxController::class, 'enableColumn'])->name('enable-column');
+    Route::post('enable-column-otp', [AjaxController::class, 'enableColumnOtp'])->name('enable-column-otp');
     Route::post('sort-reward', [AjaxController::class, 'sortReward'])->name('sort-reward');
 });
 

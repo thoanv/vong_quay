@@ -91,6 +91,9 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Phòng ban</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Thời gian đăng ký</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Trạng thái</th>
+                                        @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Cơ Cấu</th>
+                                        @endif
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hành động</th>
                                     </tr>
                                     </thead>
@@ -139,7 +142,15 @@
                                                        data-column="status" {{ $item['status'] ? 'checked="checked"' : '' }}>
                                             </div>
                                         </td>
-
+                                        @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
+                                        <td class="align-middle text-center text-sm">
+                                            <div class="form-check form-switch" style="display: inline-block">
+                                                <input class="form-check-input" name="is_otp" type="checkbox" data-id="{{$item['id']}}"
+                                                       data-api="{{route('enable-column-otp')}}" data-table="attendances"
+                                                       data-column="is_otp" {{ $item['is_otp'] === 'YES' ? 'checked="checked"' : '' }}>
+                                            </div>
+                                        </td>
+                                        @endif
                                         <td class="align-middle text-center text-sm">
                                             <form class="d-inline-block" action="{{ route('attendances.destroy', $item) }}" method="POST" >
                                                 @csrf

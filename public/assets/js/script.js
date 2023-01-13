@@ -65,3 +65,33 @@ $("[name='my-checkbox']").on('change', function () {
         }
     });
 });
+$("[name='is_otp']").on('change', function () {
+    $.ajax({
+        url: $(this).data('api'),
+        type: 'post',
+        data: {
+            id: $(this).data('id'),
+            table: $(this).data('table'),
+            column: $(this).data('column'),
+            _token: $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (response) {
+            console.log(response);
+            if (response.success) {
+                'use strict';
+                var notify = $.notify('Chuyển trạng thái thành công', 'success', {
+                    type: 'theme',
+                    allow_dismiss: true,
+                    delay: 30000,
+                    showProgressbar: true,
+                    timer: 30000,
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutUp'
+                    }
+                });
+
+            }
+        }
+    });
+});

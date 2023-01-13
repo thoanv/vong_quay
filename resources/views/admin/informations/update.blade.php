@@ -64,14 +64,14 @@
                            <div class="box-images">
                                <div class="file-upload text-center">
                                    <input type="file" class="upload_image_general" data-id="300" accept="image/x-png,image/jpeg"
-                                          data-bs-original-title="" title="" style="left: 30%" name="thumbnail">
-                                   <img src="{{$infomation['thumbnail'] ? $infomation['thumbnail'] : '/assets/img/department.jpg'}}" width="180px" alt="" class="imge image-300">
+                                          data-bs-original-title="" title="" style="left: 30%" name="background_mobile">
+                                   <img src="{{$infomation['background_mobile'] ? $infomation['background_mobile'] : '/assets/img/department.jpg'}}" width="180px" alt="" class="imge image-300">
                                </div>
                            </div>
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-footer p-3">
-                            <p class="mb-0">Thumbail</p>
+                            <p class="mb-0">Background Mobile (425x1080)</p>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                         </div>
                         <hr class="dark horizontal my-0">
                         <div class="card-footer p-3">
-                            <p class="mb-0">Background (1920x1080)</p>
+                            <p class="mb-0">Background desktop (1920x1080)</p>
                         </div>
                     </div>
                 </div>
@@ -131,39 +131,6 @@
                                             <input type="text" class="form-control form-control-lg" name="address" value="{{$infomation['address']}}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-3">
-                                            <label>Mã màu (#000)</label>
-                                            <input type="text" class="form-control form-control-lg" name="code_color" value="{{$infomation['code_color']}}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-3">
-                                            <label>Số giây dừng lại (đơn vị: giây)</label>
-                                            <input type="number" class="form-control form-control-lg" name="second" value="{{$infomation['second']}}" placeholder="10">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Audio</label>
-                                            <div class="d-flex">
-                                                <input type="file" class="form-control form-control-lg" name="audio" value="" accept=".mp3,audio/*">
-                                                @if($infomation['audio'])
-                                                    <a data-bs-toggle="tooltip" data-bs-placement="top" data-container="body" data-animation="true" data-bs-original-title="Nghe thử" style="color: red; font-size: 13px; font-style: italic; display: flex; justify-content: center; align-items: center; margin-left: 20px;" href="{{$infomation['audio']}}" target="_blank"><i class="material-icons opacity-10">play_circle</i></a>
-                                                @else
-                                                    <a data-bs-toggle="tooltip" data-bs-placement="top" data-container="body" data-animation="true" data-bs-original-title="Nghe thử" style="color: red; font-size: 13px; font-style: italic; display: flex; justify-content: center; align-items: center; margin-left: 20px;" href="/assets/audio/music.mp3" target="_blank"><i class="material-icons opacity-10">play_circle</i></a>
-                                                @endif
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-3">
-                                            <label>Kết thúc check In</label>
-                                            <input type="datetime-local" class="form-control form-control-lg" name="deadline" value="{{$infomation['deadline']}}">
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -172,7 +139,64 @@
                 </div>
 
             </div>
+                <div class="row mb-4">
+                    <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
+                        <div class="card">
+                            <div class="card-body p-3 pt-2">
+                                <h4 class="font-weight-normal mt-1">Cài đặt</h4>
+                                <hr class="dark horizontal my-0">
+                                <div class="pt-2">
+                                    <div class="form-group row mb-4">
+                                        <div class="col-lg-3">
+                                            <div class="form-group mb-3">
+                                                <label>Mã màu (#000)</label>
+                                                <input type="text" class="form-control form-control-lg" name="code_color" value="{{$infomation['code_color']}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group mb-3">
+                                                <label>Thời gian dừng lại (đơn vị: giây)</label>
+                                                <input type="number" class="form-control form-control-lg" name="second" value="{{$infomation['second']}}" placeholder="10">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group mb-3">
+                                                <label>Thời gian bắt đầu check In</label>
+                                                <input type="datetime-local" class="form-control form-control-lg" name="start_date" value="{{$infomation['start_date']}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group mb-3">
+                                                <label>Thời gian kết thúc check In</label>
+                                                <input type="datetime-local" class="form-control form-control-lg" name="deadline" value="{{$infomation['deadline']}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-3">
+                                                <label>Audio</label>
+                                                <div class="d-flex">
+                                                    <input type="file" class="form-control form-control-lg" name="audio" value="" accept=".mp3,audio/*">
+                                                    @if($infomation['audio'])
+                                                        <a data-bs-toggle="tooltip" data-bs-placement="top" data-container="body" data-animation="true" data-bs-original-title="Nghe thử" style="color: red; font-size: 13px; font-style: italic; display: flex; justify-content: center; align-items: center; margin-left: 20px;" href="{{$infomation['audio']}}" target="_blank"><i class="material-icons opacity-10">play_circle</i></a>
+                                                        <button type="button" onclick="removeAudio()" class="btn mb-0" data-bs-toggle="tooltip" data-bs-placement="top" data-container="body" data-animation="true" data-bs-original-title="Xóa nhạc"> <i class="material-icons opacity-10">delete</i></button>
 
+                                                        {{--                                                    @else--}}
+{{--                                                        <a data-bs-toggle="tooltip" data-bs-placement="top" data-container="body" data-animation="true" data-bs-original-title="Nghe thử" style="color: red; font-size: 13px; font-style: italic; display: flex; justify-content: center; align-items: center; margin-left: 20px;" href="/assets/audio/music.mp3" target="_blank"><i class="material-icons opacity-10">play_circle</i></a>--}}
+                                                    @endif
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             <div class="row">
                 <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
@@ -190,31 +214,53 @@
                             <div class="copyright text-center text-sm text-muted text-lg-start">
                                 © <script>
                                     document.write(new Date().getFullYear())
-                                </script>2022,
-                                made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                                for a better web.
+                                </script>,
+                                Copy Right <i class="fa fa-heart" aria-hidden="true"></i> by
+                                <a href="" class="font-weight-bold" target="_blank">Ban công nghệ SGO</a>
+
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                                </li>
-                            </ul>
-                        </div>
+{{--                        <div class="col-lg-6">--}}
+{{--                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="" class="nav-link text-muted" target="_blank">Creative Tim</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="" class="nav-link text-muted" target="_blank">About Us</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="" class="nav-link text-muted" target="_blank">Blog</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a href="" class="nav-link pe-0 text-muted" target="_blank">License</a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </footer>
         </div>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 969px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 734px;"></div></div></main>
 @endsection
+@push('scripts')
+    <script>
+        function removeAudio()
+        {
+            let r = confirm('Bạn có muốn xóa nhạc không');
+            if(r){
+                $.ajax({
+                    url: '{{route('remove-audio')}}',
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (res) {
+                        if(res.success){
+                            window.location.reload();
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+@endpush
