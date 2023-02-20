@@ -31,19 +31,23 @@ class DiemDanhController extends Controller
     {
         $about = $this->informationRepo->find(1);
         $departments = $this->departmentRepo->getDepartments();
+
+        //Check thời gian mở check in trong cài đặt
         if($about['start_date'] && ($about['start_date'] >= date('Y-m-d H:i:s'))){
             return view('wait-check-in', [
                 'about' => $about
             ]);
         }
-        if($about['deadline'] && ($about['deadline'] < date('Y-m-d H:i:s'))){
-            return view('deadline');
-        }
+        //Check cookie đã đăng ký
         if(isset($_COOKIE['code']) && $_COOKIE['code']){
             $cookie = (int)$_COOKIE['code'];
             $attendance = $this->attendanceRepo->getAttendanceByCode($cookie);
             if(!$attendance){
                 unset($_COOKIE['code']);
+                //Check thời gian đóng check in trong cài đặt
+                if($about['deadline'] && ($about['deadline'] < date('Y-m-d H:i:s'))){
+                    return view('deadline');
+                }
                 return view('attendance', [
                     'departments' => $departments,
                     'about' => $about
@@ -51,7 +55,10 @@ class DiemDanhController extends Controller
             }
             return redirect(route('success.attendance', $attendance));
         }
-
+        //Check thời gian đóng check in trong cài đặt
+        if($about['deadline'] && ($about['deadline'] < date('Y-m-d H:i:s'))){
+            return view('deadline');
+        }
         return view('attendance', [
             'departments' => $departments,
             'about' => $about

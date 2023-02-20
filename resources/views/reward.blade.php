@@ -47,7 +47,7 @@
                         <div class="before"></div>
                         <div class="after"></div>
                     </div>
-                    <div class="card-body attendance">
+                    <div class="card-body attendance list-rewards">
                         @foreach($rewards as $key => $reward)
                             <div class="d-flex">
                                 <div class="my-auto ms-3" style="width: 50%;">
@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-check form-switch">
+                                <div class="form-check form-switch" style="display: contents!important;">
                                     @if($reward['attendance_id'] && $reward->attendance)
                                         <div class="text-left">
                                             <h5 class="mb-0 color-setup font-size-12 text-uppercase">{{$reward->attendance->name}} @if($reward->attendance)
@@ -72,11 +72,11 @@
                                             <p class="mb-0 text-css-text-second">xxx xxx{{substr($reward->attendance->phone, -4)}}</p>
                                         </div>
                                     @else
-                                        <div class="spinner-border text-primarys spinner-reward-{{$reward['id']}}"
+                                        <div class="spinner-border text-primarys ms-auto spinner-reward-{{$reward['id']}}"
                                              role="status" style="display: none">
                                             <span class="sr-only">Loading...</span>
                                         </div>
-                                        <button class="btn btn-primary-css btn-sm start-reward reward-{{$reward['id']}}"
+                                        <button class="btn btn-primary-css btn-sm start-reward ms-auto reward-{{$reward['id']}}"
                                                 data-id="{{$reward['id']}}" data-name="{{$reward['name']}}">Quay
                                         </button>
                                     @endif

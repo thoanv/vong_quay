@@ -91,6 +91,19 @@
             padding: 3px 10px!important;
             border-bottom: 1px solid #f1f1f1;
         }
+        .list-rewards{
+            max-height: 470px;
+            overflow-y: auto;
+        }
+        .list-rewards::-webkit-scrollbar {
+            width: 7px;
+        }
+        .list-rewards::-webkit-scrollbar-thumb {
+            background: {{$about['code_color'] ? $about['code_color'] : '#026938'}}!important;;
+        }
+        .list-rewards::-webkit-scrollbar-track {
+            background: #ddd;
+        }
     </style>
     @stack('style')
 </head>
